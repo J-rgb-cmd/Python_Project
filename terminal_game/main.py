@@ -6,8 +6,11 @@ def print_screen(matrix):
             print(index, end='    ')
         print('\n')
 
-user1 = ''
-user2 = ''
+user1_sign = ''
+user2_sign = ''
+
+user1_input = ''
+user2_input = ''
 
 try_again = ''
 
@@ -17,22 +20,31 @@ def user_selection():
 
         choice = input("Select Shape: x or o\n")
         if choice == 'x':
-            user1 = 'x'
-            user2 = 'o'
+            user1_sign = 'x'
+            user2_sign = 'o'
             bool_continue = True
         elif choice == 'o':
-            user1 = 'o'
-            user2 = 'x'
+            user1_sign = 'o'
+            user2_sign = 'x'
             bool_continue = True
         else:
             print('Invalid Input, Try Again')
 
+
+def select_location(input, sign):
+    for i in range(len(default_matrix)):
+        for j in range(len(default_matrix[i])):
+            if int(input) == default_matrix[i][j]:
+                default_matrix[i][j] = sign
+            
+    
+
+
+                    
+
+
+
+user1_input= input('Select grid \n')
+select_location(user1_input,'x')
 print_screen(default_matrix)
-
-
-def win_check():
-
-user_input = 
-
-user_selection()
 
