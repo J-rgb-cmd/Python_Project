@@ -1,13 +1,16 @@
+
+
 class Gameboard: 
   def __init__(self):
-    self.matrix = [[1,2,3],[4,5,6],[7,8,9]]
+    self.matrix = {1:'1', 2:'2', 3:'3', 4:'4', 5:'5', 6:'6', 7:'7', 8:'8', 9:'9'}
+
+
 
   def print_board(self):
-    for row in self.matrix:
-        for index in row:
-            print(index, end = '    ')
-        print('\n')
-
+    print(f"{self.matrix[1][1]}|{self.matrix[2]}|{self.matrix[3]}\n"
+          f"{self.matrix[4]}|{self.matrix[5]}|{self.matrix[6]}\n"
+          f"{self.matrix[7]}|{self.matrix[8]}|{self.matrix[9]}\n")
+    
   def edit(self, player, position):
     if type(player) == Player and type(position) == int:
       for i in range(len(self.matrix)):
@@ -16,36 +19,13 @@ class Gameboard:
             self.matrix[i][j] = player.symbol
         
   def check(self):
-    for row in self.matrix:
-      counter = 0
-      for num in row:
-        if num == 'x':
-          counter += 1
-        if counter == 3:
-          return 'x'
-        elif counter == 0:
-          return 'o'
-        else: 
-          continue
-    for j in range(3):
-      counter = 0
-      for i in range(3):
-        if self.matrix[i][j] == 'x':
-          counter += 0
-      if counter == 3:
-          return 'x'
-      elif counter == 0:
-          return 'o'
-      else: 
-          continue
-    for i in range(3):
-      for j in range(3):
-        if i == j:
-          if self.matrix == 'x':
-            counter += 1
+    for i in range(0,3):
+      if (self.matrix[1+i] == 'x' and self.matrix[2+i] == 'x' and self.matrix[3+i] == 'x'):
+        return 'x'
+      
           
   def clear(self):
-    self.matrix = [[1,2,3],[4,5,6],[7,8,9]]
+    self.matrix = {1: ['1','x','o'], 2:['2','x','o'], 3:['3','x','o'], 4:['4'], 5:'5', 6:'6', 7:'7', 8:'8', 9:'9'}
     return 'New Game!'
 
 
@@ -63,12 +43,24 @@ class Player:
       self.win = True
     elif gameboard.check() == 'o' and self.symbol == 'o':
       self.win = True
-      
-token = True
 
-   
-gameboard.print_board()
-player1 = Player('x', 'Jack')
-gameboard.edit(player1, 10)
-gameboard.print_board()
-  
+blah = True
+while()
+choice1_name = input('Enter Player 1 name')
+
+choice1_symbol = input('Enter Symbol')
+player1 = Player(choice1_symbol, choice1_name)
+
+choice2_name = input('Enter Player 2 name')
+if 
+
+choice2_name
+playing = True
+turn = 0
+while playing == True:
+  gameboard.print_board()
+  choice = input()
+  player1 = Player('x', 'Jack')
+  gameboard.edit(player1, 10)
+  gameboard.print_board()
+    
